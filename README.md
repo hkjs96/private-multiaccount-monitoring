@@ -12,7 +12,7 @@
 
 ## Single EC2 Test
 
-싱글 퍼블릭 EC2 테스트를 통해 아래 구성 요소의 작동을 검증했습니다:
+Public Single EC2 테스트를 통해 아래 구성 요소의 작동을 검증했습니다:
 
 - **Prometheus**  
   Prometheus는 시스템 및 애플리케이션의 다양한 메트릭을 수집하고 저장하는 오픈 소스 모니터링 솔루션입니다. 이를 통해 서버의 상태와 성능을 실시간으로 모니터링할 수 있습니다.
@@ -26,7 +26,7 @@
 - **Node Exporter**  
   Node Exporter는 리눅스 시스템의 CPU 사용률, 메모리 사용량 등 다양한 하드웨어 및 운영 체제 수준의 메트릭을 수집하는 도구입니다. 이를 통해 시스템의 상태를 상세하게 모니터링할 수 있습니다.
 
-자세한 구성 및 설정은 [Single EC2 Test Docs](docs/single-ec2-test.md)를 참조하세요.
+자세한 구성 및 설정은 [Single EC2 Test Docs](single-ec2-test/single-ec2-test.md)를 참조하세요.
 
 ---
 
