@@ -7,16 +7,20 @@
 ## 테스트 구성 요소
 
 - **Prometheus**  
-  Prometheus는 메트릭 수집 및 저장을 담당하며, EC2 인스턴스의 다양한 메트릭 데이터를 받아 저장합니다.
+  - 시스템 및 애플리케이션의 다양한 메트릭을 수집하고 저장하는 오픈 소스 모니터링 솔루션입니다.
+  - 서버의 상태와 성능 실시간 모니터링
 
 - **Grafana**  
-  Grafana는 Prometheus에서 수집한 메트릭 데이터를 시각화하고, 사용자 정의 대시보드를 통해 시스템 모니터링 환경을 제공합니다.
+  - Prometheus 등에서 수집한 메트릭 데이터를 시각화하고, 대시보드를 통해 모니터링 환경을 제공합니다.
+  - 또한, 특정 조건에 따른 알림 설정을 통해 시스템 이상을 빠르게 감지하고 대응할 수 있도록 지원합니다.
 
 - **Grafana Agent**  
-  EC2 메타데이터 및 Node Exporter의 데이터를 수집하여 Prometheus로 전달하는 경량화된 에이전트입니다.
+  - 경량화된 데이터 수집기로, EC2 인스턴스의 메타데이터와 Node Exporter에서 수집한 메트릭을 Prometheus 서버로 전송합니다.
+  - 중앙 집중식 모니터링 지원
 
 - **Node Exporter**  
-  리눅스 기반 EC2 인스턴스에서 CPU, 메모리, 디스크 사용량 등의 하드웨어 및 시스템 수준 메트릭을 수집합니다.
+  - 리눅스 시스템의 CPU 사용률, 메모리 사용량 등 다양한 하드웨어 및 운영 체제 수준의 메트릭을 수집하는 도구입니다. 
+  - 시스템의 상태를 상세하게 모니터링
 
 ---
 
@@ -147,8 +151,8 @@ sudo systemctl enable grafana-server
 - 그라파나 에이전트 Flow 모드
     - 내부 주소의 기본값은 `agent.internal:12345`입니다. 
     - 이 주소가 네트워크의 실제 대상과 충돌하는 경우 실행 명령에서 `--server.http.memory-addr` 플래그를 사용하여 고유한 주소로 변경하세요.
-    - https://grafana.com/docs/agent/latest/flow/tasks/collect-prometheus-metrics/
-    - [원격 프로메테우스 설정](https://grafana.com/docs/agent/latest/flow/reference/components/prometheus.remote_write/)
+    - [Prometheus 메트릭 수집 및 전달](https://grafana.com/docs/agent/latest/flow/tasks/collect-prometheus-metrics/)
+    - [components - prometheus.remote_write](https://grafana.com/docs/agent/latest/flow/reference/components/prometheus.remote_write/)
     - [EC2 메타데이터 관련 설정 - Service Discovery 개념](https://grafana.com/docs/agent/latest/flow/reference/components/discovery.ec2/)
         - [기본적으로 내보내는 필드](https://grafana.com/docs/agent/latest/flow/reference/components/discovery.ec2/#exported-fields)
         - [필터 블록](https://grafana.com/docs/agent/latest/flow/reference/components/discovery.ec2/#filter-block)
