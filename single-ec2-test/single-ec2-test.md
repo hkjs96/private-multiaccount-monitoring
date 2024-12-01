@@ -174,7 +174,7 @@ sudo mkdir -p /etc/grafana-agent/  # 디렉토리 생성
 sudo chown -R grafana-agent-flow:grafana-agent-flow /etc/grafana-agent  # 디렉토리 소유권 변경
 
 # 설정 파일 생성
-PromIP="172.31.17.179"  # Prometheus 서버 IP 주소
+PromIP="<Prometheus-Private-IP>"  # Prometheus 서버 IP 주소
 
 cat <<EOF | sudo tee /etc/grafana-agent/agent.river
 logging {
