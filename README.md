@@ -5,8 +5,8 @@
 - 네트워크
   - Private Subnet에서 VPC Endpoints 이용한 통신
   - Grafana -> Target(Cloudwatch) : sts, monitoring, logs
-  - Grafana -> AMP : sts, abs, abs-workspace
-  - Target -> AMP : sts, abs, abs-workspace
+  - Grafana -> AMP : sts, aps, aps-workspaces
+  - Target -> AMP : sts, aps, aps-workspaces
 ![Private Multi-Account Grafana AMP Monitoring - Flow Image](images/flow.png)
 - Assume Role
 ![Private Multi-Account Grafana AMP Monitoring - Role Image](images/role.png)
