@@ -1,8 +1,15 @@
 # Private Multi-Account Grafana AMP Monitoring
 
-![Private Multi-Account Grafana AMP Monitoring - Image](images/dashboard-screenshot.png)
+프라이빗 네트워크 및 멀티 어카운트 AWS 환경에서 **Grafana**, **Amazon Managed Prometheus (AMP)**, **CloudWatch** 및 **Grafana Agent**를 활용한 모니터링 시스템 구축입니다.
 
-프라이빗 네트워크 및 멀티 어카운트 AWS 환경에서 **Grafana**, **Amazon Managed Prometheus (AMP)**, **CloudWatch** 및 **Grafana Agent**를 활용한 모니터링 시스템 구축 프로젝트입니다.
+- 네트워크
+  - Private Subnet에서 VPC Endpoints 이용한 통신
+  - Grafana -> Target(Cloudwatch) : sts, monitoring, logs
+  - Grafana -> AMP : sts, abs, abs-workspace
+  - Target -> AMP : sts, abs, abs-workspace
+![Private Multi-Account Grafana AMP Monitoring - Flow Image](images/flow.png)
+- Assume Role
+![Private Multi-Account Grafana AMP Monitoring - Role Image](images/role.png)
 
 ## 목차
 - [Single EC2 Test](#Single-EC2-Test)
