@@ -12,10 +12,40 @@
 ![Private Multi-Account Grafana AMP Monitoring - Role Image](images/role.png)
 
 ## 목차
+- [AWS Account IAM Configuration Guide](#aws-account-iam-configuration-guide)
+- [AWS Account Infrastructure Configuration Guide](#aws-account-infrastructure-configuration-guide)
 - [Single EC2 Test](#Single-EC2-Test)
 - [라이선스](#라이선스)
 
 ---
+
+## AWS Account IAM Configuration Guide
+
+이 섹션에서는 각 AWS 계정에서 필요한 IAM(Identity and Access Management) 설정 방법을 다룹니다.
+
+- **Role 설정**
+  - 각 계정에서 다른 계정의 리소스에 접근할 수 있도록 역할(Role) 생성
+  - 신뢰 정책(Trust Policy) 구성 (- 계정 간 신뢰 관계 설정)
+- **Permissions Management**
+  - 필요한 권한 정책(Policies) 정의 및 첨부
+  - 최소 권한 원칙(Least Privilege Principle) 적용
+
+자세한 내용은 [AWS Account IAM Configuration Docs](aws-iam-config/aws-iam-config.md)를 참조하세요.
+
+## AWS Account Infrastructure Configuration Guide
+
+이 섹션에서는 각 AWS 계정에서 모니터링 인프라를 설정하는 방법을 다룹니다.
+
+- **VPC and Subnet Setup**
+  - 프라이빗 서브넷 및 VPC 엔드포인트 구성
+  - 네트워크 보안 그룹(Security Groups) 설정
+- **Grafana OSS and AMP Integration**
+  - Grafana OSS 와 Amazon Managed Prometheus(AMP) 연동 설정
+- **Resource Deployment**
+  - Grafana Agent 및 Node Exporter 배포
+
+자세한 내용은 [AWS Account Infrastructure Configuration Docs](aws-infra-config/aws-infra-config.md)를 참조하세요.
+
 
 ## Single EC2 Test
 
