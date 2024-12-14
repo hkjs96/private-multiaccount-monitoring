@@ -55,14 +55,12 @@
 
 - **Grafana Server Setup**
   - Grafana OSS 설치
-  - MySQL DB 구성 및 연동
-  - 시스템 서비스 등록 및 관리
-  - 보안 설정 및 접근 제어
+  - ~~MySQL DB 구성 및 연동~~
+  - ~~보안 설정 및 접근 제어~~
 - **Monitoring Target Setup**
   - Node Exporter 설치 및 구성
   - Grafana Agent 설치
-  - AMP Remote Write 설정
-  - 메트릭 수집 설정
+  - CloudWatch Agent 설치
 
 자세한 내용은 [OSS Installation and Configuration Docs](oss-installation-and-configuration-guide/oss-installation-and-configuration-guide.md)를 참조하세요.
 
@@ -76,6 +74,9 @@
   - AMP Data Source 등록 및 설정
 
 자세한 내용은 [Grafana Data Sources Configuration Docs](grafana-datasource-config/grafana-datasource-config.md)를 참조하세요.
+
+## ~~Metric~~
+- 작성 필요
 
 
 ## Single EC2 Test
