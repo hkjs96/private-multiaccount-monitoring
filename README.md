@@ -5,7 +5,7 @@
 - 네트워크
   - Private Subnet에서 VPC Endpoints 이용한 통신
   - Grafana -> Target(Cloudwatch) : sts, monitoring, logs
-  - Grafana -> AMP : sts, aps, aps-workspaces
+  - Grafana -> AMP : sts, aps, aps-workspaces, logs, monitoring
   - Target -> AMP : sts, aps, aps-workspaces
 ![Private Multi-Account Grafana AMP Monitoring - Flow Image](images/flow.png)
 - Assume Role
@@ -14,6 +14,8 @@
 ## 목차
 - [AWS Account IAM Configuration Guide](#aws-account-iam-configuration-guide)
 - [AWS Account Infrastructure Configuration Guide](#aws-account-infrastructure-configuration-guide)
+- [OSS Installation and Configuration Guide](#oss-installation-and-configuration-guide)
+- [Grafana Data Sources Configuration Guide](#grafana-data-sources-configuration-guide)
 - [Single EC2 Test](#Single-EC2-Test)
 - [라이선스](#라이선스)
 
@@ -34,7 +36,7 @@
 
 ## AWS Account Infrastructure Configuration Guide
 
-이 섹션에서는 각 AWS 계정에서 모니터링 인프라를 설정하는 방법을 다룹니다.
+이 섹션에서는 각 AWS 계정에서 모니터링 인프라를 설정하는 방법을 다룹니다. 각 리소스는 NAT가 있어도 이를 이용하여 통신하지 않도록 구성 (내부 통신)
 
 - **VPC and Subnet Setup**
   - 프라이빗 서브넷 및 VPC 엔드포인트 구성
@@ -45,6 +47,35 @@
   - Grafana Agent 및 Node Exporter 배포
 
 자세한 내용은 [AWS Account Infrastructure Configuration Docs](aws-infra-config/aws-infra-config.md)를 참조하세요.
+
+
+## OSS Installation and Configuration Guide
+
+이 섹션에서는 각 서버에 필요한 구성 요소를 설치하고 설정하는 방법을 다룹니다.
+
+- **Grafana Server Setup**
+  - Grafana OSS 설치
+  - MySQL DB 구성 및 연동
+  - 시스템 서비스 등록 및 관리
+  - 보안 설정 및 접근 제어
+- **Monitoring Target Setup**
+  - Node Exporter 설치 및 구성
+  - Grafana Agent 설치
+  - AMP Remote Write 설정
+  - 메트릭 수집 설정
+
+자세한 내용은 [OSS Installation and Configuration Docs](oss-installation-and-configuration-guide/oss-installation-and-configuration-guide.md)를 참조하세요.
+
+
+## Grafana Data Sources Configuration Guide
+
+이 섹션에서는 Grafana에서 CloudWatch와 AMP 데이터 소스를 구성하는 방법을 설명합니다.
+
+- **Data Source Registration**
+  - CloudWatch Data Source 등록 및 설정
+  - AMP Data Source 등록 및 설정
+
+자세한 내용은 [Grafana Data Sources Configuration Docs](grafana-datasource-config/grafana-datasource-config.md)를 참조하세요.
 
 
 ## Single EC2 Test

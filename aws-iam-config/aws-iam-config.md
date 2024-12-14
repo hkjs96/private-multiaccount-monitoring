@@ -2,6 +2,31 @@
 
 이 문서는 프라이빗 멀티 어카운트 AWS 환경에서 Grafana, Amazon Managed Prometheus (AMP), CloudWatch 및 Grafana Agent를 활용한 모니터링 시스템 구축을 위한 IAM(Identity and Access Management) 설정 방법을 안내합니다.
 
+## 목차
+- [1. 계정 구성 개요](#1-계정-구성-개요)
+
+- [2. AMP 계정 Role 설정](#2-amp-계정-role-설정)
+  - [2.1 AMP_Assume_Role](#21-amp_assume_role)
+    - [Policy: AMP_Assume_Role_Policy](#policy-amp_assume_role_policy)
+    - [Trust Relationship](#trust-relationship)
+
+- [3. Target 계정 Role 설정](#3-target-계정-role-설정)
+  - [3.1 Target_Agent_EC2_Instance_Profile](#31-target_agent_ec2_instance_profile)
+    - [Policy: Target_Agent_AMP_Policy](#policy-target_agent_amp_policy)
+    - [Policy: EC2_Metadata_Policy](#policy-ec2_metadata_policy)
+  - [3.2 Cloudwatch_Assume_Role](#32-cloudwatch_assume_role)
+    - [Policy: Cloudwatch_Log_To_Grafana_Policy](#policy-cloudwatch_log_to_grafana_policy)
+    - [Policy: Cloudwatch_Metric_To_Grafana_Policy](#policy-cloudwatch_metric_to_grafana_policy)
+    - [Trust Relationship](#trust-relationship-1)
+
+- [4. Grafana 계정 Role 설정](#4-grafana-계정-role-설정)
+  - [4.1 Grafana_Server_EC2_Instance_Profile](#41-grafana_server_ec2_instance_profile)
+    - [Policy: Grafana_Server_AMP_Policy](#policy-grafana_server_amp_policy)
+    - [Policy: EC2_Metadata_Policy](#policy-ec2_metadata_policy-1)
+
+- [참고 사항](#참고-사항)
+
+
 ## 1. 계정 구성 개요
 
 모니터링 시스템은 다음과 같은 AWS 계정들로 구성됩니다:
@@ -280,5 +305,4 @@
    - 예: `<region>`, `<AMP_account_id>`, `<workspace_id>` 등
 
 추가 참고 자료:
-- [AWS IAM 사용 설명서](https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/introduction.html)
-- [AWS IAM 모범 사례](https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/best-practices.html)
+- [Amazon CloudWatch data source](https://grafana.com/docs/grafana/latest/datasources/aws-cloudwatch/)
