@@ -1,6 +1,8 @@
 # OSS Installation and Configuration Guide
 
-이 가이드에서는 프라이빗 네트워크 환경의 멀티 어카운트 AWS 구성에서 Grafana OSS 설치 및 구성 방법을 설명합니다.
+이 가이드에서는 프라이빗 네트워크 환경의 멀티 어카운트 AWS 구성에서 Grafana OSS 설치 및 구성 방법을 설명합니다. 
+
+> 모든 설치 과정은 **Amazon Linux 2023** 기준으로 작성되었습니다.
 
 ## 목차
 - [1. Grafana OSS 설치](#1-grafana-oss-설치)

@@ -13,13 +13,43 @@
 ### 1.1 AMP 워크스페이스 생성
 1. AMP Account 의 AWS Management Console에서 Amazon Managed Service for Prometheus 서비스로 이동
 2. '워크스페이스 생성' 버튼 클릭
+![Private Multi-Account Grafana AMP Monitoring - Create AMP Workspace Image](../images/amp-create-workspace.png)
+
 3. 다음 설정으로 워크스페이스 구성:
-   - 워크스페이스 이름: `AMP_WorkSpace` (또는 원하는 이름)
-   - 별칭: 원하는 별칭 입력
+![Private Multi-Account Grafana AMP Monitoring - Create AMP Workspace Configure Image](../images/amp-create-workspace-config.png)
+   - 워크스페이스 이름: `amp-workspace` (또는 원하는 이름)
+     - 별칭 입력
+   - 암호화: 필요에 따라 선택
    - 태그: 필요한 태그 추가
+
 4. '워크스페이스 생성' 버튼 클릭하여 완료
 
 ## 2. VPC 엔드포인트 구성
+
+### 2.0 VPC Endpoint 생성 방법
+1. AWS Console의 VPC 서비스로 이동
+2. '엔드포인트' 메뉴 선택
+3. 각 서비스별로:
+   - '엔드포인트 생성' 클릭
+   - 서비스 카테고리에서 해당 서비스 선택
+   - VPC 선택
+   - 프라이빗 서브넷이 있는 가용영역 선택
+   - 보안 그룹 연결
+   - Route Table 선택 확인
+
+- [VPC] - [PrivateLink and Lattice] - [Endpoints] - [Create endpoint] 클릭 
+![Private Multi-Account Grafana AMP Monitoring - Create VPC Endpoint Image](../images/amp-create-vpc-endpoint.png)
+- Name 입력 및 Type (AWS Services) 선택
+![Private Multi-Account Grafana AMP Monitoring - Create VPC Endpoint Configure 1 Image](../images/amp-create-vpc-endpoint-config-1.png)
+- 필요한 서비스의 VPC Endpoint 유형 선택
+![Private Multi-Account Grafana AMP Monitoring - Create VPC Endpoint Configure 2 Image](../images/amp-create-vpc-endpoint-config-2.png)
+- VPC Endpoint 를 생성할 VPC 선택
+![Private Multi-Account Grafana AMP Monitoring - Create VPC Endpoint Configure 3 Image](../images/amp-create-vpc-endpoint-config-3.png)
+- VPC Endpoint 를 생성할 VPC의 Subnet 선택 - **_최소 2개_**
+![Private Multi-Account Grafana AMP Monitoring - Create VPC Endpoint Configure 4 Image](../images/amp-create-vpc-endpoint-config-4.png)
+- 보안 그룹 선택 및 접근 정책 설정
+![Private Multi-Account Grafana AMP Monitoring - Create VPC Endpoint Configure 5 Image](../images/amp-create-vpc-endpoint-config-5.png)
+- 생성 클릭
 
 ### 2.1 Target 계정 VPC 엔드포인트
 메트릭을 수집하는 계정의 VPC에 다음 엔드포인트를 생성:
@@ -58,16 +88,6 @@ Grafana가 설치된 계정의 VPC에 다음 엔드포인트를 생성:
 ### 2.3 AMP 계정
 AMP가 설치된 계정에는 별도의 VPC 엔드포인트 구성이 필요하지 않습니다.
 
-### 2.4 엔드포인트 설정 방법
-1. AWS Console의 VPC 서비스로 이동
-2. '엔드포인트' 메뉴 선택
-3. 각 서비스별로:
-   - '엔드포인트 생성' 클릭
-   - 서비스 카테고리에서 해당 서비스 선택
-   - VPC 선택
-   - 프라이빗 서브넷이 있는 가용영역 선택
-   - 보안 그룹 연결
-   - Route Table 선택 확인
 
 ## 3. 네트워크 연결 구성
 
